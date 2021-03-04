@@ -8,9 +8,46 @@ logging:
     max-history: 7
     name: ./logs/demo.log
 
-spring:
-  datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://localhost:3306/mybatis-entity?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
+devg:
+  monitor:
+    enableMonitorController: true
+    enableMonitorMapper: true
+    queue-type: rabbitmq
+    monitor-name: 监控系统
+    #    request-params:
+    model-name: monitor
+    local-port: 8080
+    evn-name: dev
+    authorized-user: admin,123456
+    messageMaxCostTime: 3000
+    messageLimitTime: 12000
+    messageError: true
+    messageOvertime: true
+    rabbit-config:
+      rabbit-host: 127.0.0.1
+      rabbit-port: 5672
+      rabbit-username: rabbitadmin
+      rabbit-password: 123456
+      rabbit-virtual-host: dev
+      rabbit-thread-pool-size: 30
+      rabbit-monitor-message:
+        exchange-name: monitor_exchange
+        queue-name: monitor_message_consumer
+        route-key: monitor_message_consumer
+    elasticSearchConfig:
+      hostname: 47.111.253.191
+      port: 9201
+      schemeName: http
+      connectionTimeOut: 30000
+      socketTimeOut: 30000
+      connectionRequestTimeOut: 30000
+      maxConnectTotal: 60
+      maxConnectPerRoute: 20
+    #    dingdingConfig:
+    #      serverUrl: http://www.xxxxxx.com:8090/dingDing/robotMsg
+    #      isAtAll: false
+    monitorNonClassMethod:
+    - com.fasterxml.jackson.databind.ObjectMapper
+    - com.org.monitor.web.controller.MonitorIndexController
+    - com.org.monitor.web.controller.MonitorBasicController
