@@ -49,5 +49,4 @@ devg:
     #      isAtAll: false
     monitorNonClassMethod:
     - com.fasterxml.jackson.databind.ObjectMapper
-    - com.org.monitor.web.controller.MonitorIndexController
-    - com.org.monitor.web.controller.MonitorBasicController
+    - com.github.devgcoder.monitor.web.controller.MonitorIndexController
