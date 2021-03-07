@@ -18,7 +18,6 @@ devg:
     evn-name: dev
     authorized-user: admin,123456
     messageMaxCostTime: 3000
-    messageLimitTime: 12000
     messageError: true
     messageOvertime: true
     rabbit-config:
