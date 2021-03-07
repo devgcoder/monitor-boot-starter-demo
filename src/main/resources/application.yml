@@ -11,11 +11,8 @@ logging:
 
 devg:
   monitor:
-    enableMonitorController: true
-    enableMonitorMapper: true
     queue-type: rabbitmq
     monitor-name: 监控系统
-    #    request-params:
     model-name: monitor
     local-port: 8080
     evn-name: dev
